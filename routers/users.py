@@ -1,8 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
-from models import User_bd
-from database import sesion
-from obtener import obtener_listado_objetos
+
 
 
 router = APIRouter(#prefix="/users",
@@ -17,13 +15,13 @@ router = APIRouter(#prefix="/users",
 # response_model=User -> lo que se espera que retorne
 #===================================
 #============== Get ================
-def obtener_listado_objetos(objeto):
-    listado_objetos = sesion.query(objeto).all()
-    if len(listado_objetos) > 0:
-        return listado_objetos
+# def obtener_listado_objetos(objeto):
+#     listado_objetos = sesion.query(objeto).all()
+#     if len(listado_objetos) > 0:
+#         return listado_objetos
 
 
-listado_users_bd = obtener_listado_objetos(User_bd)
+#listado_users_bd = obtener_listado_objetos(User_bd)
 
 
  
@@ -54,18 +52,18 @@ users_list = [ User(id=1, name="Ben", surname="Aravena", url="https://ben.dev", 
 
 
 # App
-@router.get("/users_bd")
-async def users_bd():
-    return listado_users_bd
+# @router.get("/users_bd")
+# async def users_bd():
+#     return listado_users_bd
 
 
 
-@router.get("/users_bd/{id}", response_model=User_bd, status_code=201)
-async def users_bd(id: int):
-    if id < len(listado_users_bd):
-        return listado_users_bd[id]
-    else:
-        raise HTTPException(status_code=416, detail="Fuera de rango")
+# @router.get("/users_bd/{id}", response_model=User_bd, status_code=201)
+# async def users_bd(id: int):
+#     if id < len(listado_users_bd):
+#         return listado_users_bd[id]
+#     else:
+#         raise HTTPException(status_code=416, detail="Fuera de rango")
 
 
 # Incorrecta manera

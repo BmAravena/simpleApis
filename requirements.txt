@@ -5,6 +5,3 @@ pymongo
 python-multipart
 bcrypt
 pydantic
-sqlalchemy
-mysql.connector
-mysql-connector-python

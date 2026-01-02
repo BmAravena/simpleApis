@@ -5,3 +5,4 @@ pymongo
 python-multipart
 bcrypt
 pydantic
+sqlalchemy

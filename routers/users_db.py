@@ -1,6 +1,4 @@
 from fastapi import APIRouter, HTTPException, status
-from database import sesion
-from obtener import obtener_listado_objetos
 from db.models.user import User
 from db.client import db_client
 from db.schemes.user import user_scheme, users_scheme
